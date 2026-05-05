@@ -11,7 +11,7 @@ class AskMaster < Formula
   on_macos do
     if Hardware::CPU.intel?
       url "https://github.com/mhrsntrk/ask-master/releases/download/v1.1.0/ask-master_1.1.0_darwin_amd64.tar.gz"
-      sha256 "b6f2793da971f4bbd53c0b22cf1dece4bda19f33a93c06b7fa7add0283e32610"
+      sha256 "95e9573fdec05b9e824c14de55e279e8a13e35f760c73a05301e5ed58fbd0455"
 
       define_method(:install) do
         bin.install "ask-master"
@@ -19,7 +19,7 @@ class AskMaster < Formula
     end
     if Hardware::CPU.arm?
       url "https://github.com/mhrsntrk/ask-master/releases/download/v1.1.0/ask-master_1.1.0_darwin_arm64.tar.gz"
-      sha256 "70df779e819f4ae755c469ebb6d6e097d26ae309275751e0016136aa89db67e2"
+      sha256 "01ee668462fb318e27214cd85ea693604ab252c10f1d431863f998a1e4fddda7"
 
       define_method(:install) do
         bin.install "ask-master"
@@ -30,14 +30,14 @@ class AskMaster < Formula
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
       url "https://github.com/mhrsntrk/ask-master/releases/download/v1.1.0/ask-master_1.1.0_linux_amd64.tar.gz"
-      sha256 "0963778dc489eaac52045044fa64862439b0c01a0c63bfcc7a6c9b91a04d43dc"
+      sha256 "6e38ba0cf20511f4a643ed868b6b58265849eac8874316e797ec8da70a618764"
       define_method(:install) do
         bin.install "ask-master"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
       url "https://github.com/mhrsntrk/ask-master/releases/download/v1.1.0/ask-master_1.1.0_linux_arm64.tar.gz"
-      sha256 "7397482e8179434de25377cf28192189008a0005b01a814479a55e913c42ada8"
+      sha256 "4be57d8f5ec07abd394d683e8bb76b2770e1ff159300cc727a74ba891534f0f7"
       define_method(:install) do
         bin.install "ask-master"
       end
