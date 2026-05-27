@@ -5,21 +5,21 @@
 class AskMaster < Formula
   desc "Physical Human-in-the-Loop MCP server for AI coding agents using M5Stack Cardputer"
   homepage "https://github.com/mhrsntrk/ask-master"
-  version "1.3.0"
+  version "1.4.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/mhrsntrk/ask-master/releases/download/v1.3.0/ask-master_1.3.0_darwin_amd64.tar.gz"
-      sha256 "684fcfdca5708dcca4f41794511ac130214586c475db1d73b889091c47ae5f33"
+      url "https://github.com/mhrsntrk/ask-master/releases/download/v1.4.0/ask-master_1.4.0_darwin_amd64.tar.gz"
+      sha256 "7c0cc5d4c9eca4b5337d13ee2bb9b00b40deaf322f570aa2451a578cbae4d101"
 
       define_method(:install) do
         bin.install "ask-master"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/mhrsntrk/ask-master/releases/download/v1.3.0/ask-master_1.3.0_darwin_arm64.tar.gz"
-      sha256 "46b4ff6f6b3c19bf3072b7895a66dac4b6671c6ec4c14891ed0def8568c681ed"
+      url "https://github.com/mhrsntrk/ask-master/releases/download/v1.4.0/ask-master_1.4.0_darwin_arm64.tar.gz"
+      sha256 "765e0a1750b05cfeb42703840131f65165c2074478cb4a7c3f8f2d4a66892dff"
 
       define_method(:install) do
         bin.install "ask-master"
@@ -29,15 +29,15 @@ class AskMaster < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/mhrsntrk/ask-master/releases/download/v1.3.0/ask-master_1.3.0_linux_amd64.tar.gz"
-      sha256 "99c73d4abfe6749646c6c7c1c75e36a54c66104f2e13deec8a81bda9b75733be"
+      url "https://github.com/mhrsntrk/ask-master/releases/download/v1.4.0/ask-master_1.4.0_linux_amd64.tar.gz"
+      sha256 "da83d8e8e6372cd8f81e5300ec16aef8eedfe9acaf8662765dda27e9c299d49c"
       define_method(:install) do
         bin.install "ask-master"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/mhrsntrk/ask-master/releases/download/v1.3.0/ask-master_1.3.0_linux_arm64.tar.gz"
-      sha256 "b5d3a7496680b22945e0893d7f92b426a2f6c409d333e9d29257452b19c29a8e"
+      url "https://github.com/mhrsntrk/ask-master/releases/download/v1.4.0/ask-master_1.4.0_linux_arm64.tar.gz"
+      sha256 "b48f486b33e03d8cd2d61618fe43196b43204d30694b1e03ca0d876a4b673716"
       define_method(:install) do
         bin.install "ask-master"
       end
