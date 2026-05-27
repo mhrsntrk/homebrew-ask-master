@@ -5,21 +5,21 @@
 class AskMaster < Formula
   desc "Physical Human-in-the-Loop MCP server for AI coding agents using M5Stack Cardputer"
   homepage "https://github.com/mhrsntrk/ask-master"
-  version "1.4.0"
+  version "1.4.1"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/mhrsntrk/ask-master/releases/download/v1.4.0/ask-master_1.4.0_darwin_amd64.tar.gz"
-      sha256 "7c0cc5d4c9eca4b5337d13ee2bb9b00b40deaf322f570aa2451a578cbae4d101"
+      url "https://github.com/mhrsntrk/ask-master/releases/download/v1.4.1/ask-master_1.4.1_darwin_amd64.tar.gz"
+      sha256 "bfe700a0724b69a4affb75dfc510887a102e52a744c27ccec92d48443289518a"
 
       define_method(:install) do
         bin.install "ask-master"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/mhrsntrk/ask-master/releases/download/v1.4.0/ask-master_1.4.0_darwin_arm64.tar.gz"
-      sha256 "765e0a1750b05cfeb42703840131f65165c2074478cb4a7c3f8f2d4a66892dff"
+      url "https://github.com/mhrsntrk/ask-master/releases/download/v1.4.1/ask-master_1.4.1_darwin_arm64.tar.gz"
+      sha256 "08882c52720a2506a208c2af8852ff5d05ca34fd3cd6a97b86bb37675a4a06f3"
 
       define_method(:install) do
         bin.install "ask-master"
@@ -29,15 +29,15 @@ class AskMaster < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/mhrsntrk/ask-master/releases/download/v1.4.0/ask-master_1.4.0_linux_amd64.tar.gz"
-      sha256 "da83d8e8e6372cd8f81e5300ec16aef8eedfe9acaf8662765dda27e9c299d49c"
+      url "https://github.com/mhrsntrk/ask-master/releases/download/v1.4.1/ask-master_1.4.1_linux_amd64.tar.gz"
+      sha256 "25f5180d277fb3d43777be2f4bb69d7dd34e05d3f6a41c7da06fe435b1af45af"
       define_method(:install) do
         bin.install "ask-master"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/mhrsntrk/ask-master/releases/download/v1.4.0/ask-master_1.4.0_linux_arm64.tar.gz"
-      sha256 "b48f486b33e03d8cd2d61618fe43196b43204d30694b1e03ca0d876a4b673716"
+      url "https://github.com/mhrsntrk/ask-master/releases/download/v1.4.1/ask-master_1.4.1_linux_arm64.tar.gz"
+      sha256 "2691881733e320ceb817b50c9f423da29eb1c7d6ede91f80818ad0e252f1e7f9"
       define_method(:install) do
         bin.install "ask-master"
       end
@@ -45,6 +45,11 @@ class AskMaster < Formula
   end
 
   service do
+    # The daemon binds to all interfaces so the Cardputer device can
+    # reach it from the LAN. The WS handler enforces an IP-binding
+    # check (peer IP must match the latest UDP beacon IP), so random
+    # LAN peers cannot hijack the human-in-the-loop channel even
+    # though the listener itself is reachable.
     run [opt_bin/"ask-master", "--ws-addr", "0.0.0.0:8765"]
     keep_alive true
     log_path var/"log/ask-master.log"
